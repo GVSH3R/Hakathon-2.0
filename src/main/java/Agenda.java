@@ -67,6 +67,19 @@ public class Agenda {
         }
     }
 
+    public void modificarTelefono(String nombre, String apellido, String nuevoTelefono) {
+        String key = generarKey(nombre, apellido);
+        System.out.println("Buscando key: [" + key + "]");
+        System.out.println("Keys en agenda: " + contactos.keySet());
+        Contacto c = contactos.get(key);
+        if (c != null) {
+            c.setTelefono(nuevoTelefono);
+            System.out.println("Teléfono actualizado correctamente.");
+        } else {
+            System.out.println("Contacto no encontrado.");
+        }
+    }
+
     public int espaciosLibres() {
         return capacidad - contactos.size();
     }
