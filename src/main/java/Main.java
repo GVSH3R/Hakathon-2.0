@@ -1,4 +1,67 @@
 package main.java;
 
+import java.util.Scanner;
+
 public class Main {
+    public static void main(String[] args) {
+        Scanner sn = new Scanner(System.in);
+
+        Agenda agenda = new Agenda();
+        boolean salir = false;
+
+        while (!salir) {
+            System.out.println("\n--- MENÚ AGENDA ---");
+            System.out.println("1. Añadir contacto");
+            System.out.println("2. Listar contactos");
+            System.out.println("3. Buscar contacto");
+            System.out.println("4. Eliminar contacto");
+            System.out.println("5. Ver espacios libres");
+            System.out.println("6. Salir");
+            System.out.print("Elige una opción: ");
+
+            try {
+                int opcion = Integer.parseInt(sn.nextLine());
+
+                switch (opcion) {
+                    case 1:
+                        System.out.print("Nombre: ");
+                        String nom = sn.nextLine();
+                        System.out.print("Apellido: ");
+                        String ape = sn.nextLine();
+                        System.out.print("Teléfono: ");
+                        String tel = sn.nextLine();
+                        agenda.añadirContacto(new Contacto(nom, ape, tel));
+                        break;
+                    case 2:
+                        agenda.listarContactos();
+                        break;
+                    case 3:
+                        System.out.print("Nombre: ");
+                        String bNom = sn.nextLine();
+                        System.out.print("Apellido: ");
+                        String bApe = sn.nextLine();
+                        agenda.buscaContacto(bNom, bApe);
+                        break;
+                    case 4:
+                        System.out.print("Nombre a eliminar: ");
+                        String eNom = sn.nextLine();
+                        System.out.print("Apellido a eliminar: ");
+                        String eApe = sn.nextLine();
+                        agenda.eliminarContacto(eNom, eApe);
+                        break;
+                    case 5:
+                        System.out.println("Espacios disponibles: " + agenda.espaciosLibres());
+                        break;
+                    case 6:
+                        salir = true;
+                        System.out.println("Saliendo...");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, introduce un número válido.");
+            }
+        }
+    }
 }
