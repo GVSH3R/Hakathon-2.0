@@ -35,7 +35,6 @@ public class Main {
                         datosInvalidosException.validarApellido(ape);
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
-                        datosInvalidosException.validarTelefono(tel);
                         agenda.añadirContacto(new Contacto(nom, ape, tel));
                         break;
                     case 2:
