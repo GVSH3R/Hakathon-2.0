@@ -33,7 +33,6 @@ public class Main {
                         String ape = sn.nextLine();
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
-                        datosInvalidosException.validarTelefono(tel);
                         agenda.añadirContacto(new Contacto(nom, ape, tel));
                         break;
                     case 2:
@@ -66,7 +65,7 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, introduce un número válido.");
             } catch (datosInvalidosException e) {
-                System.out.println(e.getMessage());
+                throw new RuntimeException(e);
             }
         }
     }

@@ -44,12 +44,7 @@ public class datosInvalidosException extends Exception{
 
 
     //Martin
-    public static void validarTelefono(String tel) throws datosInvalidosException {
-        tel = tel.replaceAll("[^\\d]", "");
-        if (!tel.matches("\\d{10}")) {
-            throw new datosInvalidosException("Número telefónico inválido");
-        }
-    }
+
 
 
 
