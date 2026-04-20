@@ -38,15 +38,15 @@ Programación orientada a objetos (OOP)
 
 Estructura del proyecto
 
-├── src
-│   ├── main
-│   │   └── java
-│   │       ├── Contacto.java
-│   │       ├── Agenda.java
-│   │       └── Main.java
-│   └── test
-│       └── java
-│           └── AgendaTest.java
+    ├── src
+    │   ├── main
+    │   │   └── java
+    │   │       ├── Contacto.java
+    │   │       ├── Agenda.java
+    │   │       └── Main.java
+    │   └── test
+    │       └── java
+    │           └── AgendaTest.java
 
 Pruebas unitarias
 
