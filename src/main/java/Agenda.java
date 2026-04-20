@@ -16,6 +16,17 @@ public class Agenda {
         this.contactos = new HashMap<>();
     }
 
+    public List<Contacto> getContactosOrdenados() {
+        return contactos.values().stream()
+                .sorted(Comparator.comparing(Contacto::getNombre).thenComparing(Contacto::getApellido))
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    public Contacto getContacto(String nombre, String apellido){
+        String key = generarKey(nombre, apellido);
+        return contactos.get(key);
+    }
+
     private String generarKey(String nom, String ape) {
         return (nom.trim() + "|" + ape.trim()).toLowerCase();
     }

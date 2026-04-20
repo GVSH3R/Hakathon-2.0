@@ -32,6 +32,7 @@ public class Main {
                         datosInvalidosException.validarNombre(nom);
                         System.out.print("Apellido: ");
                         String ape = sn.nextLine();
+                        datosInvalidosException.validarApellido(ape);
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
                         datosInvalidosException.validarTelefono(tel);
