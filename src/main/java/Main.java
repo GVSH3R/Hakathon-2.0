@@ -1,5 +1,7 @@
 package main.java;
 
+import exceptions.datosInvalidosException;
+
 import java.util.Scanner;
 
 public class Main {
@@ -26,10 +28,12 @@ public class Main {
                     case 1:
                         System.out.print("Nombre: ");
                         String nom = sn.nextLine();
+                        datosInvalidosException.validarNombre(nom);
                         System.out.print("Apellido: ");
                         String ape = sn.nextLine();
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
+                        datosInvalidosException.validarTelefono(tel);
                         agenda.añadirContacto(new Contacto(nom, ape, tel));
                         break;
                     case 2:
@@ -61,6 +65,8 @@ public class Main {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, introduce un número válido.");
+            } catch (datosInvalidosException e) {
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
