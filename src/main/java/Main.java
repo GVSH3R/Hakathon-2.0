@@ -17,8 +17,9 @@ public class Main {
             System.out.println("2. Listar contactos");
             System.out.println("3. Buscar contacto");
             System.out.println("4. Eliminar contacto");
-            System.out.println("5. Ver espacios libres");
-            System.out.println("6. Salir");
+            System.out.println("5. Modificar contacto");
+            System.out.println("6. Ver espacios libres");
+            System.out.println("7. Salir");
             System.out.print("Elige una opción: ");
 
             try {
@@ -55,9 +56,20 @@ public class Main {
                         agenda.eliminarContacto(eNom, eApe);
                         break;
                     case 5:
+                        System.out.print("Nombre del contacto a modificar: ");
+                        String mNom = sn.nextLine();
+                        System.out.print("Apellido del contacto a modificar: ");
+                        String mApe = sn.nextLine();
+                        System.out.print("Nuevo teléfono: ");
+                        String mTel = sn.nextLine();
+                        agenda.modificarTelefono(mNom, mApe, mTel);
+                        break;
+
+                    case 6:
                         System.out.println("Espacios disponibles: " + agenda.espaciosLibres());
                         break;
-                    case 6:
+
+                    case 7:
                         salir = true;
                         System.out.println("Saliendo...");
                         break;
