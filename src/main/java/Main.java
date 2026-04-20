@@ -58,6 +58,10 @@ public class Main {
                     case 5:
                         System.out.print("Nombre del contacto a modificar: ");
                         String mNom = sn.nextLine();
+                        if (!agenda.existeNombre(mNom)) {
+                            System.out.println("Contacto no encontrado.");
+                            break;
+                        }
                         System.out.print("Apellido del contacto a modificar: ");
                         String mApe = sn.nextLine();
                         System.out.print("Nuevo teléfono: ");
