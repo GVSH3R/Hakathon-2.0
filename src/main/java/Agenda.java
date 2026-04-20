@@ -69,8 +69,6 @@ public class Agenda {
 
     public void modificarTelefono(String nombre, String apellido, String nuevoTelefono) {
         String key = generarKey(nombre, apellido);
-        System.out.println("Buscando key: [" + key + "]");
-        System.out.println("Keys en agenda: " + contactos.keySet());
         Contacto c = contactos.get(key);
         if (c != null) {
             c.setTelefono(nuevoTelefono);
@@ -78,6 +76,10 @@ public class Agenda {
         } else {
             System.out.println("Contacto no encontrado.");
         }
+    }
+    public boolean existeNombre(String nombre) {
+        return contactos.keySet().stream()
+                .anyMatch(key -> key.startsWith(nombre.trim().toLowerCase() + "|"));
     }
 
     public int espaciosLibres() {
