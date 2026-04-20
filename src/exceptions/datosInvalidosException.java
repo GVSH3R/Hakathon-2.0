@@ -1,6 +1,6 @@
 package exceptions;
 
-public class datosInvalidosException {
+public class datosInvalidosException extends Exception{
     //Diana
 
 
@@ -31,5 +31,10 @@ public class datosInvalidosException {
 
 
     //Martin
+
+
+
+
+
 
 }
