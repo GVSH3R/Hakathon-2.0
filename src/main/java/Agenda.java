@@ -16,6 +16,17 @@ public class Agenda {
         this.contactos = new HashMap<>();
     }
 
+    public List<Contacto> getContactosOrdenados() {
+        return contactos.values().stream()
+                .sorted(Comparator.comparing(Contacto::getNombre).thenComparing(Contacto::getApellido))
+                .collect(java.util.stream.Collectors.toList());
+    }
+
+    public Contacto getContacto(String nombre, String apellido){
+        String key = generarKey(nombre, apellido);
+        return contactos.get(key);
+    }
+
     private String generarKey(String nom, String ape) {
         return (nom.trim() + "|" + ape.trim()).toLowerCase();
     }
@@ -65,6 +76,21 @@ public class Agenda {
         } else {
             System.out.println("No existe.");
         }
+    }
+
+    public void modificarTelefono(String nombre, String apellido, String nuevoTelefono) {
+        String key = generarKey(nombre, apellido);
+        Contacto c = contactos.get(key);
+        if (c != null) {
+            c.setTelefono(nuevoTelefono);
+            System.out.println("Teléfono actualizado correctamente.");
+        } else {
+            System.out.println("Contacto no encontrado.");
+        }
+    }
+    public boolean existeNombre(String nombre) {
+        return contactos.keySet().stream()
+                .anyMatch(key -> key.startsWith(nombre.trim().toLowerCase() + "|"));
     }
 
     public int espaciosLibres() {

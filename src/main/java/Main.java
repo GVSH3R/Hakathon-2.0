@@ -17,8 +17,9 @@ public class Main {
             System.out.println("2. Listar contactos");
             System.out.println("3. Buscar contacto");
             System.out.println("4. Eliminar contacto");
-            System.out.println("5. Ver espacios libres");
-            System.out.println("6. Salir");
+            System.out.println("5. Modificar contacto");
+            System.out.println("6. Ver espacios libres");
+            System.out.println("7. Salir");
             System.out.print("Elige una opción: ");
 
             try {
@@ -31,6 +32,7 @@ public class Main {
                         datosInvalidosException.validarNombre(nom);
                         System.out.print("Apellido: ");
                         String ape = sn.nextLine();
+                        datosInvalidosException.validarApellido(ape);
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
                         agenda.añadirContacto(new Contacto(nom, ape, tel));
@@ -53,9 +55,24 @@ public class Main {
                         agenda.eliminarContacto(eNom, eApe);
                         break;
                     case 5:
+                        System.out.print("Nombre del contacto a modificar: ");
+                        String mNom = sn.nextLine();
+                        if (!agenda.existeNombre(mNom)) {
+                            System.out.println("Contacto no encontrado.");
+                            break;
+                        }
+                        System.out.print("Apellido del contacto a modificar: ");
+                        String mApe = sn.nextLine();
+                        System.out.print("Nuevo teléfono: ");
+                        String mTel = sn.nextLine();
+                        agenda.modificarTelefono(mNom, mApe, mTel);
+                        break;
+
+                    case 6:
                         System.out.println("Espacios disponibles: " + agenda.espaciosLibres());
                         break;
-                    case 6:
+
+                    case 7:
                         salir = true;
                         System.out.println("Saliendo...");
                         break;
@@ -65,7 +82,7 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, introduce un número válido.");
             } catch (datosInvalidosException e) {
-                throw new RuntimeException(e);
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
