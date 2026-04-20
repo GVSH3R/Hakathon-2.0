@@ -1,6 +1,11 @@
 package exceptions;
 
 public class datosInvalidosException extends Exception{
+    // Constructor
+    public datosInvalidosException(String mensaje) {
+        super(mensaje);
+    }
+
     //Diana
     public static void validarNombre(String nombre) throws datosInvalidosException {
         if (nombre == null || nombre.trim().isEmpty()) {
@@ -10,14 +15,6 @@ public class datosInvalidosException extends Exception{
             throw new datosInvalidosException("El nombre solo debe contener letras, vuelve a intentarlo");
         }
     }
-
-    // Constructor
-    public datosInvalidosException(String mensaje) {
-        super(mensaje);
-    }
-
-
-
 
 
 
