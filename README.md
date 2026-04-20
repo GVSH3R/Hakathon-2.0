@@ -64,13 +64,13 @@ Eliminar contacto
 
 Ejemplo:
 
-@Test
-void testAñadirYBuscar() {
-    Agenda agenda = new Agenda();
-    Contacto c = new Contacto("Ana", "Lopez", "12345");
-    assertTrue(agenda.añadirContacto(c));
-    assertTrue(agenda.buscarContacto("Ana", "Lopez").isPresent());
-}
+    @Test
+    void testAñadirYBuscar() {
+        Agenda agenda = new Agenda();
+        Contacto c = new Contacto("Ana", "Lopez", "12345");
+        assertTrue(agenda.añadirContacto(c));
+        assertTrue(agenda.buscarContacto("Ana", "Lopez").isPresent());
+    }
 
 Evaluación según rúbrica
 
@@ -90,9 +90,9 @@ git clone https://github.com/usuario/agenda-contactos-java.git
 
 Compilar y ejecutar:
 
-cd agenda-contactos-java
-javac src/main/java/*.java
-java Main
+    cd agenda-contactos-java
+    javac src/main/java/*.java
+    java Main
 
 Autores
 
