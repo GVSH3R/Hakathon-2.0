@@ -65,7 +65,7 @@ public class Main {
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, introduce un número válido.");
             } catch (datosInvalidosException e) {
-                throw new RuntimeException(e);
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
