@@ -35,6 +35,7 @@ public class Main {
                         datosInvalidosException.validarApellido(ape);
                         System.out.print("Teléfono: ");
                         String tel = sn.nextLine();
+                        datosInvalidosException.validarTelefono(tel);
                         agenda.añadirContacto(new Contacto(nom, ape, tel));
                         break;
                     case 2:
@@ -65,6 +66,7 @@ public class Main {
                         String mApe = sn.nextLine();
                         System.out.print("Nuevo teléfono: ");
                         String mTel = sn.nextLine();
+                        datosInvalidosException.validarTelefono(mTel);
                         agenda.modificarTelefono(mNom, mApe, mTel);
                         break;
 
